@@ -1,0 +1,51 @@
+name: Task
+description: Every piece of work, for a person or a Claude Code run. No run starts without this filled in.
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options:
+        - spec (a rule or behavior that is new or changed)
+        - bug (it worked as decided and now it doesn't, or never did)
+        - data (wrong or missing data, legacy or migration gaps)
+    validations:
+      required: true
+  - type: dropdown
+    id: tier
+    attributes:
+      label: Tier
+      options:
+        - "1: money path (quotes, signing, deposits, invoices, orders, sends, DB, PROD access)"
+        - "2: everything else"
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What should be true when this is done, in one or two sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints
+      description: Rules, contracts, files or systems this must respect. Link the ruling or spec.
+    validations:
+      required: true
+  - type: textarea
+    id: done-when
+    attributes:
+      label: Done when
+      description: Checkable results. For a bug, the test that now catches it.
+      placeholder: "- [ ] ..."
+    validations:
+      required: true
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
+      description: What this issue must not change.
+    validations:
+      required: true
